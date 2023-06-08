@@ -13,7 +13,9 @@ public class BaseGameManager : MonoBehaviour
         BATTLEEND,
         PLAYERLOSE,
         PLAYERWIN,
-        STAGEEND
+        ROUNDEND,
+        STAGEENDINIT,
+        STAGEENDDONE
     }
 
     public List<Unit> unitsPlayer;
@@ -24,6 +26,8 @@ public class BaseGameManager : MonoBehaviour
     public Transform[] UnitPos = new Transform[8];
 
     public GAMESTATE gamestate = GAMESTATE.INIT;
+
+    public int roundIndex;
 
     public virtual void Start()
     {
@@ -36,6 +40,7 @@ public class BaseGameManager : MonoBehaviour
         // 유닛 생성, 배치 등을 수행할 수 있음
 
         gamestate = GAMESTATE.PLAYERMOVE;
+        roundIndex = 1;
     }
 
     public virtual void Update()

@@ -105,7 +105,10 @@ MonoBehaviour:
   currentAttackPower: 2
   maxSpeed: 2
   currentSpeed: 2
+  unitType: 0
+  hudTextManager: {fileID: 0}
   targetList: []
-  mainTarget: {fileID: 0}
+  UIList: []
   basePos: {x: 0, y: 0, z: 0}
   skillPos: {x: 0, y: 0, z: 0}
+  HUDNumber: {fileID: 5029700884536340165, guid: 3b813f3b4c036664baba87b6163e20e2, type: 3}

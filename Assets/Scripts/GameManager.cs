@@ -2,9 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
+using UnityEngine.UI;
 
 public class GameManager : BaseGameManager
 {
+    protected SceneChanger SceneChanger => SceneChanger.Instance;           //싱글톤 불러오기
     public enum TURNSTATE
     {
         RUNNING,
@@ -22,10 +24,49 @@ public class GameManager : BaseGameManager
 
     public Unit unit;
 
+    public int StageNum = 100;
+    public Entity_EnemyData enemyData;
+    public Entity_PlayerData PlayerData;
+    public Text uiStage;
+
+    public DialogSystem dialogSystem;
+    public int dialogIndex;
 
     public override void Start()
     {
-        base.Start();
+        if(SceneChanger.currentStateNum == 0)
+        {
+            uiStage.text = "테스트 스테이지";
+            uiStage.DOFade(0f, 1.0f).OnComplete(() =>
+            {
+                // 애니메이션이 완료되면 UI Text를 비활성화합니다.
+                uiStage.gameObject.SetActive(false);
+            });
+            StageNum = 100;
+        }
+        else
+        {        
+
+            uiStage.text = "Stage " + SceneChanger.currentStateNum.ToString();
+            uiStage.DOFade(0f, 3.0f).OnComplete(() =>
+            {
+                // 애니메이션이 완료되면 UI Text를 비활성화합니다.
+                uiStage.gameObject.SetActive(false);
+            });
+            StageNum = SceneChanger.currentStateNum * 100;
+        }
+
+      
+
+        //base.Start();
+        dialogIndex = SceneChanger.currentDialogIndexNum;
+        StartCoroutine(StartDialog());
+    }
+
+    private IEnumerator StartDialog()
+    {
+        yield return new WaitUntil(() => dialogSystem.UpdateDialog(dialogIndex, true)); //기다리는 함수 , 다이얼로그 시스템이 완료 될때 까지 
+        InitializeGame();
     }
     public override void InitializeGame()
     {
@@ -40,10 +81,18 @@ public class GameManager : BaseGameManager
         {
             GameObject temp = Instantiate(unit.gameObject);
 
+            Entity_PlayerData.Param desiredParam = PlayerData.sheets[0].list.Find(param => param.index == i + 1);
+
             temp.transform.position = UnitPos[i].position;
             temp.GetComponent<Unit>().unitType = BaseUnit.UNITTYPE.PLAYER;
-            temp.GetComponent<Unit>().maxHealth = 100;
-            temp.GetComponent<Unit>().currentHealth = 100;
+            temp.GetComponent<Unit>().maxHealth = desiredParam.hp;
+            temp.GetComponent<Unit>().currentHealth = desiredParam.hp;
+            temp.GetComponent<Unit>().maxAttackPower = desiredParam.attack;
+            temp.GetComponent<Unit>().currentAttackPower = desiredParam.attack;
+            temp.GetComponent<Unit>().maxSpeed = desiredParam.speed;
+            temp.GetComponent<Unit>().currentSpeed = desiredParam.speed;
+            temp.GetComponent<Unit>().unitName = desiredParam.name;
+
             unitsPlayer.Add(temp.GetComponent<Unit>());
         }
     }
@@ -54,9 +103,22 @@ public class GameManager : BaseGameManager
         {
             GameObject temp = Instantiate(unit.gameObject);
 
+            int newindex = StageNum + roundIndex * 10 + i + 1;
+            Debug.Log("Enemy Index : " + newindex);
+            // 해당하는 index의 데이터 가져오기
+            Entity_EnemyData.Param desiredParam = enemyData.sheets[0].list.Find(param => param.index == newindex);
+            
             temp.transform.position = UnitPos[i+4].position + new Vector3(10.0f,0.0f,0.0f);
             temp.transform.DOMove(UnitPos[i + 4].position, 1.0f);
             temp.GetComponent<Unit>().unitType = BaseUnit.UNITTYPE.ENEMY;
+            temp.GetComponent<Unit>().maxHealth = desiredParam.hp;
+            temp.GetComponent<Unit>().currentHealth = desiredParam.hp;
+            temp.GetComponent<Unit>().maxAttackPower = desiredParam.attack;
+            temp.GetComponent<Unit>().currentAttackPower = desiredParam.attack;
+            temp.GetComponent<Unit>().maxSpeed = desiredParam.speed;
+            temp.GetComponent<Unit>().currentSpeed = desiredParam.speed;
+            temp.GetComponent<Unit>().unitName = desiredParam.name;
+            
             unitsEnemy.Add(temp.GetComponent<Unit>());
         }
     }
@@ -67,7 +129,7 @@ public class GameManager : BaseGameManager
         {
             moveTimeCheck += Time.deltaTime;
 
-            if(playerMoveTime >= moveTimeCheck)
+            if(playerMoveTime <= moveTimeCheck)
             {
                 gamestate = GAMESTATE.BATTLEINIT;
                 moveTimeCheck = 0.0f;
@@ -89,6 +151,31 @@ public class GameManager : BaseGameManager
             turnState = TURNSTATE.DOTURN;
             StartCoroutine(NextTurn());
         }
+
+        if (gamestate == GAMESTATE.ROUNDEND)
+        {
+            RoundEndCheck();
+        }
+
+        if (gamestate == GAMESTATE.STAGEENDINIT)
+        {
+            SceneChanger.LoadStageScene();
+            gamestate = GAMESTATE.STAGEENDDONE;
+        }
+    }
+
+    public void RoundEndCheck()
+    {
+        roundIndex += 1;
+
+        if(roundIndex > 4)
+        {
+            gamestate = GAMESTATE.STAGEENDINIT;
+        }
+        else
+        {
+            gamestate = GAMESTATE.PLAYERMOVE;
+        }
     }
 
     public void DoBattleInit()
@@ -108,15 +195,24 @@ public class GameManager : BaseGameManager
     public IEnumerator NextTurn()
     {        
         Unit nextUnit = turnOrder[0];
+        nextUnit.ClearTarget();
         turnOrder.RemoveAt(0);
-        if(nextUnit.unitType == BaseUnit.UNITTYPE.PLAYER)
-        {            
-            nextUnit.SetTarget(unitsEnemy[0]);
+        if (nextUnit.unitType == BaseUnit.UNITTYPE.PLAYER)
+        {
+            
+            for (int i = 0; i < unitsEnemy.Count; i++)
+            {
+                nextUnit.SetTarget(unitsEnemy[i]);
+            }
+          
         }
 
         if (nextUnit.unitType == BaseUnit.UNITTYPE.ENEMY)
         {
-            nextUnit.SetTarget(unitsPlayer[0]);
+            for (int i = 0; i < unitsPlayer.Count; i++)
+            {
+                nextUnit.SetTarget(unitsPlayer[i]);
+            }
         }
 
         yield return StartCoroutine(nextUnit.CoAttack());
@@ -130,15 +226,13 @@ public class GameManager : BaseGameManager
 
         if (unitsEnemy.Count == 0)
         {
-            gamestate = GAMESTATE.PLAYERMOVE;
+            gamestate = GAMESTATE.ROUNDEND;
         }
 
         if (unitsPlayer.Count == 0)
         {
             gamestate = GAMESTATE.PLAYERLOSE;
-        }
-
-        
+        }        
     }
 
     public void DieCheck()
@@ -156,7 +250,7 @@ public class GameManager : BaseGameManager
         foreach (Unit unit in unitsToRemove)
         {
             unitsPlayer.Remove(unit);
-            Destroy(unit.gameObject);
+            unit.UnitDestory();
         }
 
         foreach (Unit unit in unitsEnemy)
@@ -170,7 +264,7 @@ public class GameManager : BaseGameManager
         foreach (Unit unit in unitsToRemove)
         {
             unitsEnemy.Remove(unit);
-            Destroy(unit.gameObject);
+            unit.UnitDestory();
         }
 
         foreach (Unit unit in unitsToRemove)

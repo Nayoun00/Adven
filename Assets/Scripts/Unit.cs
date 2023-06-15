@@ -21,9 +21,13 @@ public class Unit : BaseUnit
     GameObject uiHPObject;
     GameObject uiNameObject;
 
+    public GameManager gameManager;
+
     // Start is called before the first frame update
     void Start()
     {
+        gameManager = GameObject.FindFirstObjectByType<GameManager>();
+
         basePos = transform.position;
 
         hudTextManager = GameObject.Find("HUDTextManager").GetComponent<HUDTextManager>();
@@ -68,26 +72,93 @@ public class Unit : BaseUnit
 
     public IEnumerator CoAttack()
     {
-
-        int randIndex = Random.Range(0, targetList.Count);
-
-        targetPos = targetList[randIndex].transform.position;
-
-
-        OwnPos = transform.position;
-
-        Sequence sequence;
-        sequence = DOTween.Sequence();
-        sequence.Append(transform.DOMove(targetPos, 0.1f));
-        sequence.Append(transform.DOMove(OwnPos, 0.1f));
-        Attack(randIndex);
         yield return new WaitForSeconds(0.3f);
+
+        if (skill_LockOn)
+        {
+            yield return StartCoroutine(DoSkill((int)skillType));
+            skill_LockOn = false;
+        }
+        else
+        {
+            int randIndex = Random.Range(0, targetList.Count);
+            targetPos = targetList[randIndex].transform.position;
+            OwnPos = transform.position;
+            Sequence sequence;
+            sequence = DOTween.Sequence();
+            sequence.Append(transform.DOMove(targetPos, 0.1f));
+            sequence.Append(transform.DOMove(OwnPos, 0.1f));
+            Attack(randIndex);
+            yield return new WaitForSeconds(0.3f);
+        }
+       
     }
 
     public void Attack(int randIndex)
     {
         targetList[randIndex].Damaged(GetAttackPower());
         hudTextManager.UpdateHUDTextSet(GetAttackPower().ToString(), targetList[randIndex].gameObject, new Vector3(0.0f, 2.0f, 0.0f));     
+    }
+
+    IEnumerator DoSkill(int skillNumber)
+    {
+        if(skillNumber == 1)
+        {
+            int randIndex = Random.Range(0, targetList.Count);
+            targetPos = targetList[randIndex].transform.position;
+            OwnPos = transform.position;
+            Sequence sequence;
+            sequence = DOTween.Sequence();
+            sequence.Append(transform.DOMove(targetPos, 0.1f));
+            sequence.Append(transform.DOMove(OwnPos, 0.1f));
+            targetList[randIndex].Damaged(GetAttackPower() * 2);
+            hudTextManager.UpdateHUDTextSet((GetAttackPower() * 2).ToString() , targetList[randIndex].gameObject, new Vector3(0.0f, 2.0f, 0.0f));            
+        }
+
+        if (skillNumber == 2)
+        {
+            int randIndex = Random.Range(0, targetList.Count);
+            targetPos = targetList[randIndex].transform.position;
+            OwnPos = transform.position;
+            Sequence sequence;
+            sequence = DOTween.Sequence();
+            sequence.Append(transform.DOMove(targetPos, 0.1f));
+            sequence.Append(transform.DOMove(OwnPos, 0.1f));
+            targetList[randIndex].Damaged(GetAttackPower());
+            hudTextManager.UpdateHUDTextSet((GetAttackPower()).ToString(), targetList[randIndex].gameObject, new Vector3(0.0f, 2.0f, 0.0f));
+
+            randIndex = Random.Range(0, targetList.Count);
+            targetPos = targetList[randIndex].transform.position;
+            OwnPos = transform.position;
+            sequence = DOTween.Sequence();
+            sequence.Append(transform.DOMove(targetPos, 0.1f));
+            sequence.Append(transform.DOMove(OwnPos, 0.1f));
+            targetList[randIndex].Damaged(GetAttackPower());
+            hudTextManager.UpdateHUDTextSet((GetAttackPower()).ToString(), targetList[randIndex].gameObject, new Vector3(0.0f, 2.0f, 0.0f));
+        }
+
+        if (skillNumber == 3)
+        {
+            int randIndex = Random.Range(0, targetList.Count);
+            targetPos = targetList[randIndex].transform.position;
+            OwnPos = transform.position;
+            Sequence sequence;
+            sequence = DOTween.Sequence();
+            sequence.Append(transform.DOMove(targetPos, 0.1f));
+            sequence.Append(transform.DOMove(OwnPos, 0.1f));
+            targetList[randIndex].Damaged((int)(GetAttackPower() * 1.5f));
+            hudTextManager.UpdateHUDTextSet(((int)(GetAttackPower() * 1.5f)).ToString(), targetList[randIndex].gameObject, new Vector3(0.0f, 2.0f, 0.0f));
+
+            targetPos = targetList[randIndex].transform.position;
+            OwnPos = transform.position;
+            sequence = DOTween.Sequence();
+            sequence.Append(transform.DOMove(targetPos, 0.1f));
+            sequence.Append(transform.DOMove(OwnPos, 0.1f));
+            targetList[randIndex].Damaged((int)(GetAttackPower() * 1.5f));
+            hudTextManager.UpdateHUDTextSet(((int)(GetAttackPower() * 1.5f)).ToString(), targetList[randIndex].gameObject, new Vector3(0.0f, 2.0f, 0.0f));
+        }
+
+        yield return new WaitForSeconds(0.3f);
     }
 
     public void SetTarget(Unit targetUnit)

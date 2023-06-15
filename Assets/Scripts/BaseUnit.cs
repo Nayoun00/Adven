@@ -10,6 +10,16 @@ public class BaseUnit : MonoBehaviour
         ENEMY,
     }
 
+    public enum SKILLTYPE : int
+    {
+        SKILL_01 = 1,
+        SKILL_02,
+        SKILL_03,
+        SKILL_04
+
+    }
+
+
 
     public string unitName;
 
@@ -28,6 +38,9 @@ public class BaseUnit : MonoBehaviour
     protected Vector3 OwnPos;
 
     public UNITTYPE unitType = UNITTYPE.PLAYER;
+
+    public SKILLTYPE skillType = SKILLTYPE.SKILL_01;
+    public bool skill_LockOn = false;
 
     public float GetTurnPriority()
     {

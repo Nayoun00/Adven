@@ -27,7 +27,7 @@ Transform:
   m_GameObject: {fileID: 7285916517630565371}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 2, z: 1}
+  m_LocalScale: {x: 0.6, y: 0.6, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -106,9 +106,14 @@ MonoBehaviour:
   maxSpeed: 2
   currentSpeed: 2
   unitType: 0
+  skillType: 1
+  skill_LockOn: 0
   hudTextManager: {fileID: 0}
   targetList: []
   UIList: []
   basePos: {x: 0, y: 0, z: 0}
   skillPos: {x: 0, y: 0, z: 0}
   HUDNumber: {fileID: 5029700884536340165, guid: 3b813f3b4c036664baba87b6163e20e2, type: 3}
+  gameManager: {fileID: 0}
+  unitPath: 
+  spriteRenderer: {fileID: 0}

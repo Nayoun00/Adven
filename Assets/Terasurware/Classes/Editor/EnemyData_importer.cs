@@ -56,6 +56,7 @@ public class EnemyData_importer : AssetPostprocessor {
 					cell = row.GetCell(3); p.speed = (int)(cell == null ? 0 : cell.NumericCellValue);
 					cell = row.GetCell(4); p.attack = (int)(cell == null ? 0 : cell.NumericCellValue);
 					cell = row.GetCell(5); p.skillnum = (int)(cell == null ? 0 : cell.NumericCellValue);
+					cell = row.GetCell(6); p.resourcesPath = (cell == null ? "" : cell.StringCellValue);
 						s.list.Add (p);
 					}
 					data.sheets.Add(s);

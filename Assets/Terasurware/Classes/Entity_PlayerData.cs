@@ -23,6 +23,7 @@ public class Entity_PlayerData : ScriptableObject
 		public int speed;
 		public int attack;
 		public int skillnum;
+		public string resourcesPath;
 	}
 }
 

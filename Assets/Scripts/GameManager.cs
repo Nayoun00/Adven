@@ -92,6 +92,7 @@ public class GameManager : BaseGameManager
             temp.GetComponent<Unit>().maxSpeed = desiredParam.speed;
             temp.GetComponent<Unit>().currentSpeed = desiredParam.speed;
             temp.GetComponent<Unit>().unitName = desiredParam.name;
+            temp.GetComponent<Unit>().unitPath = desiredParam.resourcesPath;
 
             unitsPlayer.Add(temp.GetComponent<Unit>());
         }
@@ -118,7 +119,8 @@ public class GameManager : BaseGameManager
             temp.GetComponent<Unit>().maxSpeed = desiredParam.speed;
             temp.GetComponent<Unit>().currentSpeed = desiredParam.speed;
             temp.GetComponent<Unit>().unitName = desiredParam.name;
-            
+            temp.GetComponent<Unit>().unitPath = desiredParam.resourcesPath;
+
             unitsEnemy.Add(temp.GetComponent<Unit>());
         }
     }

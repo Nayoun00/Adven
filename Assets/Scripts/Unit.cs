@@ -23,16 +23,25 @@ public class Unit : BaseUnit
 
     public GameManager gameManager;
 
+    public string unitPath = "";
+    public SpriteRenderer spriteRenderer;
+
     // Start is called before the first frame update
     void Start()
     {
         gameManager = GameObject.FindFirstObjectByType<GameManager>();
-
+        spriteRenderer = this.gameObject.GetComponent<SpriteRenderer>();
         basePos = transform.position;
 
         hudTextManager = GameObject.Find("HUDTextManager").GetComponent<HUDTextManager>();
 
         SetUnitUI();
+
+        if(unitPath != "")
+        {
+            spriteRenderer.sprite = Resources.Load<Sprite>(unitPath);
+        }
+        
     }
 
     private void Update()

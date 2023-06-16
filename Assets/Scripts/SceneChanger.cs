@@ -86,5 +86,20 @@ public class SceneChanger : MonoBehaviour
             SceneManager.LoadScene("StageScene");
         });
     }
+     public void LoadTitleScene()
+        {
+            PlayTransitionAnimation(() =>
+            {
+                SceneManager.LoadScene("TitleScene");
+            });
+        }
 
+/*    public void LoadFinishScene()
+    {
+        PlayTransitionAnimation(() =>
+        {
+            SceneManager.LoadScene("StageScene");
+        });
+    }*/
+    
 }

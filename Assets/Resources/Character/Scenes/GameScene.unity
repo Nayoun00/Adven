@@ -1273,11 +1273,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f986b8403b47b4d47895fd191155957b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  unitsPlayer:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  unitsPlayer: []
   unitsEnemy: []
   turnOrder: []
   UnitPos:

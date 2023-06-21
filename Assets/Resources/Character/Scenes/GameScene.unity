@@ -1273,7 +1273,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f986b8403b47b4d47895fd191155957b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  unitsPlayer: []
+  unitsPlayer:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   unitsEnemy: []
   turnOrder: []
   UnitPos:
@@ -1332,7 +1336,17 @@ MonoBehaviour:
     textName: {fileID: 290081873}
     textDialogue: {fileID: 1359800646}
     objectArrow: {fileID: 122724894}
-  dialogs: []
+  dialogs:
+  - index: 0
+    speakerUIindex: 0
+    name: 
+    dialogue: 
+    characterPath: 
+    backGroundPath: 
+    tweenType: 0
+    nextindex: 0
+    selectIndex: 0
+    nextScene: 
   selectData: []
   DialogInit: 1
   dialogsDB: 1

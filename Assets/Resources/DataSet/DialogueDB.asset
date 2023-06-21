@@ -210,7 +210,7 @@ MonoBehaviour:
       characterPath: Character/00001
       BackGroundPath: None
       tweenType: 0
-      nextindex: 1
+      nextindex: 19
       selectIndex: -100
       nextScene: None
     - index: 18
@@ -222,7 +222,7 @@ MonoBehaviour:
       characterPath: Character/00001
       BackGroundPath: None
       tweenType: 0
-      nextindex: 1
+      nextindex: 20
       selectIndex: -100
       nextScene: None
     - index: 19
@@ -233,7 +233,7 @@ MonoBehaviour:
       characterPath: Character/00002
       BackGroundPath: None
       tweenType: 0
-      nextindex: 1
+      nextindex: 21
       selectIndex: -100
       nextScene: None
     - index: 20
@@ -244,7 +244,7 @@ MonoBehaviour:
       characterPath: Character/00003
       BackGroundPath: None
       tweenType: 0
-      nextindex: 1
+      nextindex: 22
       selectIndex: -100
       nextScene: None
     - index: 21
@@ -254,7 +254,7 @@ MonoBehaviour:
       characterPath: Character/00004
       BackGroundPath: None
       tweenType: 0
-      nextindex: 1
+      nextindex: 23
       selectIndex: -100
       nextScene: None
     - index: 22
@@ -265,7 +265,7 @@ MonoBehaviour:
       characterPath: Character/00005
       BackGroundPath: None
       tweenType: 0
-      nextindex: 1
+      nextindex: 24
       selectIndex: -100
       nextScene: None
     - index: 23
@@ -276,7 +276,7 @@ MonoBehaviour:
       characterPath: Character/00006
       BackGroundPath: None
       tweenType: 0
-      nextindex: 1
+      nextindex: 25
       selectIndex: -100
       nextScene: None
     - index: 24
@@ -286,7 +286,7 @@ MonoBehaviour:
       characterPath: Character/00007
       BackGroundPath: None
       tweenType: 0
-      nextindex: 1
+      nextindex: 26
       selectIndex: -100
       nextScene: None
     - index: 25
@@ -297,7 +297,7 @@ MonoBehaviour:
       characterPath: Character/00008
       BackGroundPath: None
       tweenType: 0
-      nextindex: 1
+      nextindex: 27
       selectIndex: -100
       nextScene: None
     - index: 26
@@ -308,7 +308,7 @@ MonoBehaviour:
       characterPath: Character/00009
       BackGroundPath: None
       tweenType: 0
-      nextindex: 1
+      nextindex: 28
       selectIndex: -100
       nextScene: None
     - index: 27
@@ -318,7 +318,7 @@ MonoBehaviour:
       characterPath: Character/00010
       BackGroundPath: None
       tweenType: 0
-      nextindex: 1
+      nextindex: 29
       selectIndex: -100
       nextScene: None
     - index: 28
@@ -328,7 +328,7 @@ MonoBehaviour:
       characterPath: Character/00011
       BackGroundPath: None
       tweenType: 0
-      nextindex: 1
+      nextindex: 30
       selectIndex: -100
       nextScene: None
     - index: 29
@@ -339,7 +339,7 @@ MonoBehaviour:
       characterPath: Character/00012
       BackGroundPath: None
       tweenType: 0
-      nextindex: 1
+      nextindex: 31
       selectIndex: -100
       nextScene: None
     - index: 30
@@ -349,7 +349,7 @@ MonoBehaviour:
       characterPath: Character/00013
       BackGroundPath: None
       tweenType: 0
-      nextindex: 1
+      nextindex: 32
       selectIndex: -100
       nextScene: None
     - index: 31
@@ -360,7 +360,7 @@ MonoBehaviour:
       characterPath: Character/00014
       BackGroundPath: None
       tweenType: 0
-      nextindex: 1
+      nextindex: 33
       selectIndex: -100
       nextScene: None
     - index: 32
@@ -371,7 +371,7 @@ MonoBehaviour:
       characterPath: Character/00015
       BackGroundPath: None
       tweenType: 0
-      nextindex: 1
+      nextindex: -100
       selectIndex: -100
       nextScene: None
     - index: 33
@@ -392,7 +392,7 @@ MonoBehaviour:
       characterPath: Character/00017
       BackGroundPath: None
       tweenType: 0
-      nextindex: 1
+      nextindex: 34
       selectIndex: -100
       nextScene: None
     - index: 35
@@ -402,7 +402,7 @@ MonoBehaviour:
       characterPath: Character/00018
       BackGroundPath: None
       tweenType: 0
-      nextindex: 1
+      nextindex: 35
       selectIndex: -100
       nextScene: None
     - index: 36
@@ -412,7 +412,7 @@ MonoBehaviour:
       characterPath: Character/00019
       BackGroundPath: None
       tweenType: 0
-      nextindex: 1
+      nextindex: 36
       selectIndex: -100
       nextScene: None
     - index: 37
@@ -424,7 +424,7 @@ MonoBehaviour:
       characterPath: Character/00020
       BackGroundPath: None
       tweenType: 0
-      nextindex: 1
+      nextindex: 37
       selectIndex: -100
       nextScene: None
     - index: 38
@@ -434,7 +434,7 @@ MonoBehaviour:
       characterPath: Character/00021
       BackGroundPath: None
       tweenType: 0
-      nextindex: 1
+      nextindex: 38
       selectIndex: -100
       nextScene: None
     - index: 39
@@ -446,7 +446,7 @@ MonoBehaviour:
       characterPath: Character/00022
       BackGroundPath: None
       tweenType: 0
-      nextindex: 1
+      nextindex: 39
       selectIndex: -100
       nextScene: None
     - index: 40
@@ -458,7 +458,7 @@ MonoBehaviour:
       characterPath: Character/00023
       BackGroundPath: None
       tweenType: 0
-      nextindex: 1
+      nextindex: 40
       selectIndex: -100
       nextScene: None
     - index: 41
@@ -470,7 +470,7 @@ MonoBehaviour:
       characterPath: Character/00024
       BackGroundPath: None
       tweenType: 0
-      nextindex: 1
+      nextindex: 41
       selectIndex: -100
       nextScene: None
     - index: 42
@@ -480,7 +480,7 @@ MonoBehaviour:
       characterPath: Character/00025
       BackGroundPath: None
       tweenType: 0
-      nextindex: 1
+      nextindex: 42
       selectIndex: -100
       nextScene: None
     - index: 33
@@ -490,7 +490,7 @@ MonoBehaviour:
       characterPath: Character/00016
       BackGroundPath: None
       tweenType: 0
-      nextindex: 1
+      nextindex: -100
       selectIndex: -100
       nextScene: None
     - index: 34

@@ -26,7 +26,7 @@ MonoBehaviour:
       name: "\uCE7C\uB9AC\uC624\uC2A4"
       hp: 450
       speed: 4
-      attack: 200
+      attack: 150
       skillnum: 0
       resourcesPath: Character/kal1
     - index: 3

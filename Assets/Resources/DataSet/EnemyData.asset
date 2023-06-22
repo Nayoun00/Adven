@@ -21,112 +21,112 @@ MonoBehaviour:
       speed: 4
       attack: 10
       skillnum: 0
-      resourcesPath: Character/20001
+      resourcesPath: Character/S
     - index: 112
       name: "1_wave1_\uC801_02"
       hp: 150
       speed: 4
       attack: 10
       skillnum: 0
-      resourcesPath: Character/20002
+      resourcesPath: Character/S
     - index: 113
       name: "1_wave1_\uC801_03"
       hp: 150
       speed: 4
       attack: 10
       skillnum: 0
-      resourcesPath: Character/20003
+      resourcesPath: Character/S
     - index: 114
       name: "1_wave1_\uC801_04"
       hp: 175
       speed: 5
       attack: 12
       skillnum: 0
-      resourcesPath: Character/20004
+      resourcesPath: Character/Crab
     - index: 121
       name: "1_wave2_\uC801_01"
       hp: 150
       speed: 4
       attack: 10
       skillnum: 0
-      resourcesPath: Character/20001
+      resourcesPath: Character/S
     - index: 122
       name: "1_wave2_\uC801_02"
       hp: 150
       speed: 4
       attack: 10
       skillnum: 0
-      resourcesPath: Character/20001
+      resourcesPath: Character/S
     - index: 123
       name: "1_wave2_\uC801_03"
       hp: 150
       speed: 4
       attack: 10
       skillnum: 0
-      resourcesPath: Character/20001
+      resourcesPath: Character/S
     - index: 124
       name: "1_wave2_\uC801_04"
       hp: 175
       speed: 5
       attack: 12
       skillnum: 0
-      resourcesPath: Character/20001
+      resourcesPath: Character/Crab
     - index: 131
       name: "1_wave3_\uC801_01"
       hp: 150
       speed: 4
       attack: 10
       skillnum: 0
-      resourcesPath: Character/20001
+      resourcesPath: Character/S
     - index: 132
       name: "1_wave3_\uC801_02"
       hp: 150
       speed: 4
       attack: 10
       skillnum: 0
-      resourcesPath: Character/20001
+      resourcesPath: Character/S
     - index: 133
       name: "1_wave3_\uC801_03"
       hp: 150
       speed: 4
       attack: 10
       skillnum: 0
-      resourcesPath: Character/20001
+      resourcesPath: Character/S
     - index: 134
       name: "1_wave3_\uC801_04"
       hp: 175
       speed: 5
       attack: 12
       skillnum: 0
-      resourcesPath: Character/20001
+      resourcesPath: Character/Crab
     - index: 141
       name: "1_wave4_\uC801_01"
       hp: 150
       speed: 4
       attack: 10
       skillnum: 0
-      resourcesPath: Character/20001
+      resourcesPath: Character/S
     - index: 142
       name: "1_wave4_\uC801_02"
       hp: 150
       speed: 4
       attack: 10
       skillnum: 0
-      resourcesPath: Character/20001
+      resourcesPath: Character/S
     - index: 143
       name: "1_wave4_\uC801_03"
-      hp: 150
-      speed: 4
-      attack: 10
-      skillnum: 0
-      resourcesPath: Character/20001
-    - index: 144
-      name: "1_wave4_\uC801_04"
       hp: 175
       speed: 5
       attack: 12
       skillnum: 0
-      resourcesPath: Character/20001
+      resourcesPath: Character/Crab
+    - index: 144
+      name: "1_wave4_\uC801_04"
+      hp: 180
+      speed: 5
+      attack: 13
+      skillnum: 0
+      resourcesPath: Character/Goblin
     - index: 211
       name: "2_wave1_\uC801_01"
       hp: 150

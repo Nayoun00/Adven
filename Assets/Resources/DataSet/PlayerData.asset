@@ -16,33 +16,33 @@ MonoBehaviour:
   - name: Sheet1
     list:
     - index: 1
-      name: "\uD50C\uB808\uC774\uC5B4 1"
+      name: "\uB2E4\uC774\uB124"
       hp: 450
       speed: 4
       attack: 100
       skillnum: 0
-      resourcesPath: Character/10001
+      resourcesPath: Character/Die2
     - index: 2
-      name: "\uD50C\uB808\uC774\uC5B4 2"
+      name: "\uCE7C\uB9AC\uC624\uC2A4"
       hp: 450
       speed: 4
       attack: 200
       skillnum: 0
-      resourcesPath: Character/10001
+      resourcesPath: Character/kal1
     - index: 3
-      name: "\uD50C\uB808\uC774\uC5B4 3"
+      name: "\uB77C\uD1A0\uB098"
       hp: 450
       speed: 5
       attack: 100
       skillnum: 0
-      resourcesPath: Character/10001
+      resourcesPath: Character/Rat2
     - index: 4
-      name: "\uD50C\uB808\uC774\uC5B4 4"
+      name: "\uD2F0\uC5D0\uB9AC\uC2A4"
       hp: 450
       speed: 5
       attack: 100
       skillnum: 0
-      resourcesPath: Character/10001
+      resourcesPath: Character/Tie2
     - index: 0
       name: 
       hp: 0
